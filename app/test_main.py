@@ -26,3 +26,13 @@ def test_function_returns_list_of_two_integers() -> None:
     assert isinstance(result, list)
     assert len(result) == 2
     assert all(isinstance(age, int) for age in result)
+
+
+def test_should_raise_type_error_for_incorrect_types() -> None:
+    with pytest.raises(TypeError):
+        get_human_age("a", "b")
+
+
+def test_should_raise_value_error_for_negative_numbers() -> None:
+    with pytest.raises(ValueError):
+        get_human_age(-1, -10)
